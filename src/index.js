@@ -28,7 +28,7 @@ function StarRating({ totalStars = 5 }) {
 }
 
 function App() {
-  return <StarRating totalStars={4} />;
+  return <StarRating totalStars={5} />;
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
