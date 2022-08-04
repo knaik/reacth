@@ -10,11 +10,11 @@ function reducer(state, action) {
   switch (action.type) {
     case "yell":
       return {
-        message: "Hey!",
+        message: `Hey! I just said ${state.message}`,
       };
     case "whisper":
       return {
-        message: "hi there",
+        message: `hi there I just wanted to say  ${state.message}`,
       };
   }
 }
@@ -24,7 +24,9 @@ function App() {
 
   return (
     <>
-      <p> Message {state.message} </p>
+      <p> Message: {state.message} </p>
+      <button onClick={() => dispactch({ type: "yell" })}>Yell</button>
+      <button onClick={() => dispactch({ type: "whisper" })}>whisper</button>
     </>
   );
 }
