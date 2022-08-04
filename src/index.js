@@ -20,10 +20,12 @@ function App() {
       <p> Congratulations {name}!</p>
       <button onClick={() => setName("Naik")}>Change Winner</button>
       <p>{admin ? "logged in" : "not logged in"}</p>
+
       <button onClick={() => setAdmin(!admin)}>Log in</button>
     </section>
   );
 }
+//test
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
