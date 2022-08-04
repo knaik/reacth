@@ -1,40 +1,25 @@
-import React, { useState, useEffect, useReducer, useRef } from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { useInput } from "./useInput";
+import App from "./App.js";
+import { createRoot } from "react-dom/client";
 
-function App() {
-  const [titleProps, resetTitle] = useInput("");
-  const [colorProps, resetColor] = useInput("#000000");
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
-  const submit = (e) => {
-    e.preventDefault();
-    /*     const soundVal = sound.current.value;
-    const colorVal = color.current.value; */
-    alert(`${titleProps.value} sounds like ${colorProps.value}`);
-    resetTitle();
-    resetColor();
-    /*     sound.current.value = "";
-    color.current.value = ""; */
-  };
+const trees = [
+  { id: "1", type: "maple" },
+  { id: "2", type: "cherry" },
+  { id: "3", type: "family" },
+  { id: "4", type: "component" },
+];
 
-  return (
-    <form onSubmit={submit}>
-      <input
-        {...titleProps}
-        type="text"
-        placeholder="sound..."
-        //onChange={(e) => setSound(e.target.value)}
-      />
-      <input {...colorProps} type="color" />
-      <button>ADD</button>
-    </form>
-  );
-}
+export const TreesContext = createContext({ trees });
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+//const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <TreesContext.Provider value={{ trees }}>
     <App />
-  </React.StrictMode>
+  </TreesContext.Provider>
+  // document.getElementById("root")
 );
